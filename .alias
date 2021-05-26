@@ -1,0 +1,25 @@
+#### ALIASES ####
+alias ls='ls'
+
+## GIT
+alias blame='git blame'
+alias checkb='git checkout -b'
+alias checkout='git checkout'
+alias st='git status'
+alias stash='git stash'
+alias branchl='git branch list'
+alias branchd='git branch -D'
+alias rebi='git rebase -i'
+alias reb='git rebase'
+alias res='git reset --hard'
+alias resf='git checkout --'
+alias diff='git diff'
+alias glog='git log'
+alias reflog='git reflog'
+alias smu='git checkout develop && git pull origin develop && git fetch --all'
+alias rebasedev='git pull origin develop --rebase'
+alias evalssh='eval `ssh-agent` && ssh-add ~/.ssh/id_rsa'
+
+## when using openbox 
+# alias printr='xfce4-screenshooter'
+# alias printreg='xfce4-screenshooter -r'
