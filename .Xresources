@@ -1,0 +1,80 @@
+!
+!█▀▄▀█ █▀▀█ █▀▀ █░░█ █▀▀ █▀▀▄ █▀▀█ █▀▀▄ █▀▀▀ 
+!█░▀░█ █▄▄█ ▀▀█ █▀▀█ █▀▀ █▀▀▄ █▄▄█ █░░█ █░▀█ 
+!▀░░░▀ ▀░░▀ ▀▀▀ ▀░░▀ ▀▀▀ ▀▀▀░ ▀░░▀ ▀░░▀ ▀▀▀▀ : xresources
+!
+!
+!! Colorscheme
+! from: darkmachine 
+! http://dotshare.it/dots/8461/
+!
+! special
+*.foreground:   #c0c0c0
+*.background:   #121212
+*.cursorColor:  #c0c0c0
+
+! black
+*.color0:       #080808
+*.color8:       #36393f
+
+! red
+*.color1:       #515978
+*.color9:       #778099
+
+! green
+*.color2:       #3ea28d
+*.color10:      #71c4ba
+
+! yellow
+*.color3:       #4dc5ce
+*.color11:      #5e767f
+
+! blue
+*.color4:       #6ea2a5
+*.color12:      #6abdc1
+
+! magenta
+*.color5:       #a8a8a8
+*.color13:      #4e4d80
+
+! cyan
+*.color6:       #558188
+*.color14:      #4fc8ce
+
+! white
+*.color7:       #c0c0c0
+*.color15:      #a6a8aa
+
+!! URxvt Appearance
+URxvt.font: xft:FantasqueSansMono Nerd Font Mono:style=Regular:size=10
+URxvt.boldFont: xft:FantasqueSansMono Nerd Font Mono:style=Regular:size=10
+URxvt.italicFont: xft:FantasqueSansMono Nerd Font Mono:style=Regular:size=10
+URxvt.boldItalicfont: xft:FantasqueSansMono Nerd Font Mono:style=Regular:size=10
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 24
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 24
+URxvt.iso14755: false
+URxvt.transparent:   true
+URxvt.shading:       10
+!! Copy Paste & Other Extensions
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.clipboard.autocopy: true
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.urlLauncher: firefox
+URxvt.underlineURLs: true
+URxvt.urlButton: 1
