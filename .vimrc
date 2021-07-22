@@ -14,13 +14,16 @@ Plugin 'ervandew/supertab'
 Plugin 'Yggdroot/indentLine'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'wakatime/vim-wakatime'
-Plugin 'mxw/vim-jsx'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'xero/blaquemagick.vim'
 Plugin 'ap/vim-buftabline'
 Plugin 'alvan/vim-closetag'
 Plugin 'morhetz/gruvbox'
 Plugin 'aserebryakov/vim-todo-lists'
+Plugin 'chemzqm/vim-jsx-improve'
+Plugin 'yuezk/vim-js'
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'fcpg/vim-fahrenheit'
 
 call vundle#end()
 
@@ -32,7 +35,7 @@ call vundle#end()
 
 syntax on
 set mouse=a
-set nonumber
+set relativenumber
 set showcmd
 set autoindent
 set cursorline
@@ -46,9 +49,10 @@ set formatoptions=1
 set lbr
 set linebreak
 set wrap
+set t_Co=256
+colorscheme fahrenheit
 "set background=dark
-colorscheme slate
-"set t_Co=256
+set tabstop=2
 
 """
 """""
@@ -75,6 +79,15 @@ nnoremap <C-P> :FZF <CR>
 let NERDChristmasTree = 1
 let NERDTreeHighlightCursorline = 1
 
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx,*js'
+
+
+"""
+"""""
+""""""" filetype CONFIGS 
+"""""
+"""
+"
 au BufRead,BufNewFile *.todo setfiletype todo
 
 filetype plugin indent on
@@ -82,6 +95,7 @@ autocmd Filetype php setlocal sts=4 sw=4 expandtab
 autocmd Filetype perl setlocal sts=4 sw=4 expandtab
 autocmd Filetype sh setlocal sts=4 sw=4 expandtab
 autocmd Filetype javascript setlocal sts=2 sw=2 expandtab
+autocmd Filetype typescript setlocal sts=2 sw=2 expandtab
 autocmd Filetype sql setlocal sts=2 sw=2 expandtab
 autocmd Filetype lua setlocal sts=2 sw=2 expandtab
 autocmd Filetype haskell setlocal sts=2 sw=2 expandtab
@@ -96,6 +110,7 @@ autocmd Filetype vcl setlocal sts=4 sw=4 expandtab
 autocmd Filetype json setlocal sts=4 sw=4 expandtab
 autocmd Filetype erb setlocal sts=4 sw=4 expandtab
 autocmd Filetype vue setlocal sts=2 sw=2 expandtab
+au BufNewFile,BufRead *.jsx,*.tsx setlocal filetype=javascript
 au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 

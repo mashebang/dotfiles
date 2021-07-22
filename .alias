@@ -1,5 +1,5 @@
 #### ALIASES ####
-alias ls='ls'
+alias ls='ls -laF'
 
 ## GIT
 alias blame='git blame'
@@ -19,6 +19,7 @@ alias reflog='git reflog'
 alias smu='git checkout develop && git pull origin develop && git fetch --all'
 alias rebasedev='git pull origin develop --rebase'
 alias evalssh='eval `ssh-agent` && ssh-add ~/.ssh/id_rsa'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 ## when using openbox 
 # alias printr='xfce4-screenshooter'
