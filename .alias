@@ -1,5 +1,10 @@
 #### ALIASES ####
 alias ls='ls -laF'
+alias evalssh='eval `ssh-agent` && ssh-add ~/.ssh/id_rsa'
+alias androidstudio='~/android-studio/bin/studio.sh > /dev/null 2>&1 &'
+alias webstorm='~/webstorm/bin/webstorm.sh > /dev/null 2>&1 &'
+alias cleanavdcache='find ~/.android/ -type f -name "*.lock" -delete'
+alias checkavdcache='find ~/.android/ -type f -name "*.lock"'
 
 ## GIT
 alias blame='git blame'
@@ -18,8 +23,6 @@ alias glog='git log'
 alias reflog='git reflog'
 alias smu='git checkout develop && git pull origin develop && git fetch --all'
 alias rebasedev='git pull origin develop --rebase'
-alias evalssh='eval `ssh-agent` && ssh-add ~/.ssh/id_rsa'
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 ## when using openbox 
 # alias printr='xfce4-screenshooter'
