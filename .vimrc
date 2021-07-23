@@ -79,7 +79,7 @@ nnoremap <C-P> :FZF <CR>
 let NERDChristmasTree = 1
 let NERDTreeHighlightCursorline = 1
 
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx,*js'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx,*.js,*.ts'
 
 
 """
@@ -110,7 +110,7 @@ autocmd Filetype vcl setlocal sts=4 sw=4 expandtab
 autocmd Filetype json setlocal sts=4 sw=4 expandtab
 autocmd Filetype erb setlocal sts=4 sw=4 expandtab
 autocmd Filetype vue setlocal sts=2 sw=2 expandtab
-au BufNewFile,BufRead *.jsx,*.tsx setlocal filetype=javascript
+au BufNewFile,BufRead *.jsx,*.tsx,*.ts setlocal filetype=javascript
 au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 
