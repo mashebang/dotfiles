@@ -10,20 +10,31 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
-Plugin 'ervandew/supertab'
-Plugin 'Yggdroot/indentLine'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'xero/blaquemagick.vim'
-Plugin 'ap/vim-buftabline'
 Plugin 'alvan/vim-closetag'
-Plugin 'morhetz/gruvbox'
 Plugin 'aserebryakov/vim-todo-lists'
 Plugin 'chemzqm/vim-jsx-improve'
 Plugin 'yuezk/vim-js'
 Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'mhinz/vim-startify'
+Plugin 'cohama/agit.vim'
+Plugin 'tpope/vim-surround'
+
+""" VISUALS
+Plugin 'thiagoalessio/rainbow_levels.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'fcpg/vim-fahrenheit'
+Plugin 'vim-airline/vim-airline'
+Plugin 'morhetz/gruvbox'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'glepnir/oceanic-material'
+Plugin 'vim-airline/vim-airline-themes'
+
 
 call vundle#end()
 
@@ -40,6 +51,7 @@ set showcmd
 set autoindent
 set cursorline
 set nocursorcolumn
+set relativenumber
 set laststatus=2
 set hlsearch
 set ic
@@ -48,13 +60,18 @@ set autoread
 set formatoptions=1
 set lbr
 set linebreak
-set wrap
+set nowrap
 set t_Co=256
-colorscheme fahrenheit
-"set background=dark
+colorscheme jellybeans
+set background=dark
 set tabstop=2
 
-"""
+"""""" for 80 column highlight
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
+
+
 """""
 """"""" SHORTCUTS 
 """""
@@ -68,6 +85,7 @@ nmap <C-g> :split<CR>
 nmap <C-t> :tabnew <CR>
 nmap <C-l> :bn <CR>
 nmap <C-h> :bp <CR>
+nmap <C-k> :bdelete <CR>
 nnoremap <C-P> :FZF <CR>
 
 """
@@ -76,10 +94,24 @@ nnoremap <C-P> :FZF <CR>
 """""
 """
 "
-let NERDChristmasTree = 1
-let NERDTreeHighlightCursorline = 1
+let g:indent_guides_enable_on_vim_startup = 1
+
+let NERDChristmasTree = 0
+let NERDTreeHighlightCursorline = 0
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx,*.js,*.ts'
+let g:syntastic_javascript_checkers=['eslint']
+let g:webdevicons_conceal_nerdtree_brackets=2
+
+
+"""""" AIRLINE SHIET
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_theme = 'deus'
+
+
+
 
 
 """
@@ -104,13 +136,13 @@ autocmd Filetype less setlocal sts=2 sw=2 expandtab
 autocmd Filetype css setlocal sts=2 sw=2 expandtab
 autocmd Filetype html setlocal sts=2 sw=2 expandtab
 autocmd Filetype python setlocal sts=4 sw=4 expandtab
-autocmd Filetype c setlocal sts=4 sw=4 expandtab}
+autocmd Filetype c setlocal sts=4 sw=4 expandtab
 autocmd Filetype ruby setlocal sts=2 sw=2 expandtab
 autocmd Filetype vcl setlocal sts=4 sw=4 expandtab
 autocmd Filetype json setlocal sts=4 sw=4 expandtab
 autocmd Filetype erb setlocal sts=4 sw=4 expandtab
 autocmd Filetype vue setlocal sts=2 sw=2 expandtab
-au BufNewFile,BufRead *.jsx,*.tsx,*.ts setlocal filetype=javascript
+au BufNewFile,BufRead *.jsx,*.ts,*.tsx setlocal filetype=javascript
 au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 
