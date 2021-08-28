@@ -34,4 +34,4 @@ hg_branch_changes() {
     echo "$STR_CHANGES"
 }
 
-export PS1="\W \[$(tput sgr0)\]\$(branch_name)\$(git_branch_changes)\$(hg_branch_changes) \[\033[38;5;133m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+export PS1="$(tput setab 99; tput setaf 224)\W\[$(tput sgr0)\] \360\237\220\231 $(tput setab 211; tput setaf 236)\$(branch_name)\$(git_branch_changes)\$(tput sgr0)\$(hg_branch_changes) \[\033[38;5;133m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
