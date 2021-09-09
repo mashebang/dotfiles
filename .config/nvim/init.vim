@@ -37,12 +37,10 @@ Plugin 'mhinz/vim-startify'
 Plugin 'cohama/agit.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-sleuth'
-Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'davidyorr/vim-es6-unused-imports'
 Plugin 'prettier/vim-prettier'
 Plugin 'eslint/eslint'
 Plugin 'dense-analysis/ale'
-
 "
 ""
 """
@@ -69,6 +67,7 @@ Plugin 'flazz/vim-colorschemes'
 call vundle#end()
 
 
+
 "
 ""
 """
@@ -87,7 +86,7 @@ set relativenumber
 set noautochdir
 set showcmd
 set autoindent
-set cursorline
+set nocursorline
 set nocursorcolumn
 set relativenumber
 set laststatus=2
@@ -101,15 +100,24 @@ set lbr
 set linebreak
 set nowrap
 set t_Co=256
-colorscheme gruvbox
 set tabstop=2
 set wildmenu
 
-"""""" for 80 column highlight
+
+
+
+""" folding settings
+
+"""set foldmethod=syntax "syntax highlighting items specify folds  
+"set foldcolumn=2 "defines 1 col at window left, to indicate folding  
+"let javaScript_fold=1 "activate folding by JS syntax  
+
+""" for 80 column highlight
+colorscheme gruvbox
+
 highlight OverLength ctermbg=black ctermfg=white guibg=#999999
 match OverLength /\%81v.\+/
-
-highlight EndOfBuffer ctermfg=bg ctermbg=bg
+highlight EndOfBuffer ctermfg=NONE guifg=NONE
 
 "
 ""
@@ -133,6 +141,8 @@ nmap <C-l> :bn <CR>
 nmap <C-h> :bp <CR>
 nmap <C-k> :bdelete <CR>
 nnoremap <C-P> :FZF <CR>
+nnoremap <leader>tb :hi Normal guibg=NONE ctermbg=NONE<CR>
+nnoremap <leader>git :Agit<CR>
 
 
 "
@@ -145,8 +155,7 @@ nnoremap <C-P> :FZF <CR>
 "
 
 let mapleader = ","
-
-let g:indent_guides_enable_on_vim_startup = 1
+let maplocalleader = ",,"
 
 let NERDChristmasTree = 0
 let NERDTreeHighlightCursorline = 0
@@ -172,9 +181,9 @@ let g:airline_theme = 'deus'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_error = '♦️'
 let g:ale_sign_warning = '⭕'
-let g:ale_sign_column_always = 1
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
-let g:ale_lint_on_save = 1
+" let g:ale_sign_column_always = 1
+" let g:ale_fixers = {'javascript': ['eslint']}
+" let g:ale_lint_on_save = 1
 
 
 """
@@ -183,6 +192,7 @@ let g:ale_lint_on_save = 1
 """""
 """
 
+filetype plugin on
 au BufRead,BufNewFile *.todo setfiletype todo
 filetype plugin indent on
 
@@ -206,8 +216,19 @@ autocmd Filetype json setlocal sts=4 sw=4 expandtab
 autocmd Filetype erb setlocal sts=4 sw=4 expandtab
 autocmd Filetype vue setlocal sts=2 sw=2 expandtab
 
+"""
+"""""
+""""""" AUTOCMDS """""
+"""
+
 au BufNewFile,BufRead *.jsx,*.ts,*.tsx setlocal filetype=javascript
 au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
-
 autocmd BufWinEnter,BufWritePost *.js,*.jsx,*.ts,*.tsx execute "ES6ImportsHighlight"
+autocmd BufWinEnter,BufWritePost *.js,*.jsx,*.ts,*.tsx execute "hi Normal guibg=NONE ctermbg=NONE"
+autocmd VimEnter,ColorScheme * execute "hi Normal guibg=NONE ctermbg=NONE"
+"""au BufNewFile,BufRead * :NERDTreeFind<CR><C-w>l
+
+
+""" specific triggers and events
+autocmd BufWritePost *.pug execute "!cd ~/proj/t9-resolveai-site && npm run build:html"
