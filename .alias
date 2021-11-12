@@ -1,5 +1,5 @@
 #### ALIASES ####
-alias ls='lsd -aLX1'
+alias ls='ls -la'
 alias cleanswp='find ./ -type f -name "*.swp" -delete'
 
 ## GIT
