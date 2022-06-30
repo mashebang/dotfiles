@@ -37,6 +37,8 @@ Plugin 'cohama/agit.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-sleuth'
 Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'christoomey/vim-tmux-navigator'
+
 
 "
 ""
@@ -74,7 +76,7 @@ call vundle#end()
 set nocompatible
 syntax on
 set mouse=a
-set list
+"set list
 set relativenumber
 set noautochdir
 set showcmd
@@ -83,23 +85,23 @@ set cursorline
 set nocursorcolumn
 set relativenumber
 set laststatus=2
-set hlsearch
+"set hlsearch
 set ic
 set incsearch
 set hidden
 set autoread
 set formatoptions=1
-set lbr
-set linebreak
+"set lbr
+"set linebreak
 set nowrap
 set t_Co=256
-colorscheme jellybeans
-set background=dark
+colorscheme slate
+"set background=dark
 set tabstop=2
 
 """""" for 80 column highlight
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
 
 "
 ""
@@ -121,6 +123,8 @@ nmap <C-l> :bn <CR>
 nmap <C-h> :bp <CR>
 nmap <C-k> :bdelete <CR>
 nnoremap <C-P> :FZF <CR>
+nnoremap <esc> :noh<return><esc>
+tnoremap <Esc> <C-\><C-n>
 
 
 "
@@ -133,7 +137,6 @@ nnoremap <C-P> :FZF <CR>
 "
 
 
-let g:indent_guides_enable_on_vim_startup = 1
 
 let NERDChristmasTree = 0
 let NERDTreeHighlightCursorline = 0
